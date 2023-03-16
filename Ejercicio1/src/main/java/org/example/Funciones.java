@@ -4,9 +4,8 @@ public class Funciones {
     int x;
     int y;
 
-    int solucionM = 1;
+    int solucion = 1;
 
-    int contarM = 1;
 
     public Funciones(int x, int y) {
         this.x = x;
@@ -16,17 +15,27 @@ public class Funciones {
     public Funciones() {
     }
 
-    public int multiplicacion(int x,int y) {
-        solucionM *= x;
-        if (y == contarM){
-            return solucionM;
+    public double multiplicacion(int x,int y) {
+        solucion *= x;
+        if (y == 1){
+            return solucion;
         }else {
-            contarM++;
+            y--;
             return multiplicacion(x,y);
         }
     }
 
-    
+    public double calcularPorLog(int x, int y) {
+        if (y == 0) {
+            return 1;
+        }
+        double temp = calcularPorLog(x, y / 2);
+        if (y % 2 == 0) {
+            return temp * temp;
+        } else {
+            return x * temp * temp;
+        }
+    }
 
 
 }
